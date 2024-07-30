@@ -68,3 +68,29 @@ void Queue<T>::clear() {
     this -> head = nullptr;
     this -> tail = nullptr;
 }
+
+template<typename T>
+Queue<T>::Queue(const Queue<T>& other) {
+    Node<T>* curr = other.head;
+    while (curr) {
+        this -> enqueue(curr -> val);
+        curr = curr -> next;
+    }
+}
+
+template<typename T>
+Queue<T>& Queue<T>::operator=(const Queue<T>& rhs) {
+    this -> clear();
+    Node<T>* curr = rhs.head;
+    while (curr) {
+        this -> enqueue(curr -> val);
+        curr = curr -> val;
+    }
+
+    return *this;
+}
+
+template<typename T>
+Queue<T>::~Queue() {
+    this -> clear();
+}
