@@ -6,7 +6,7 @@ LinkedList<T>::LinkedList() : dummyHead(new Node<T>()), size(0) {}
 
 template<typename T>
 LinkedList<T>::LinkedList(const LinkedList& originalLinkedList) {
-    Node<T>* curr = originalLinkedList.dummyHead->next;
+    Node<T>* curr = originalLinkedList->dummyHead->next;
 
     while (curr) {
         append(curr -> val);
@@ -102,8 +102,8 @@ void LinkedList<T>::insertAt(int pos, T val) {
         throw out_of_range("Index out of bounds");
     }
 
-    Node<T> newNode = new Node<T>(val);
-    Node<T> curr = dummyHead;
+    Node<T>* newNode = new Node<T>(val);
+    Node<T>* curr = dummyHead;
 
     for (int i = 0; i < pos; i++) {
         curr = curr -> next;

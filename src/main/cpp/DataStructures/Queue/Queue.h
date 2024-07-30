@@ -1,11 +1,14 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 #include "Node.h"
+#include <stdexcept>
 template<typename T>
 class Queue {
 
 private:
-    Node<T>* top;
+    Node<T>* head;
+    Node<T>* tail;
+    int size;
 
 public:
 
@@ -19,7 +22,7 @@ public:
 
     /// @brief Assignment operator
     /// @param Queue Take in the queue on the rhs
-    /// @return Deep copy of the queue to the lhs/.
+    /// @return Deep copy of the queue to the lhs.
     Queue<T>& operator=(const Queue<T>&);
 
     /// @brief Queue Destructor.

@@ -9,7 +9,12 @@ template<typename T>
 class Node {
 public:
     T val;
-    Node* next;
+    Node<T>* next;
+    Node<T>* prev;
     
-    Node(T value = T(), Node* next = nullptr) : val(value), next(next) {}
+    Node(T value = T(), Node<T>* next = nullptr, Node<T>* prev = nullptr) {
+        this->val = value;
+        this->next = next;
+        this->prev = prev;
+    }
 };
